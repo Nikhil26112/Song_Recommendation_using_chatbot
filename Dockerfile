@@ -1,7 +1,6 @@
 FROM python:3.9.9-slim
 WORKDIR /app
-COPY . /app
+COPY requirement.txt /app
 RUN pip install -r requirement.txt
 RUN python training.py
-EXPOSE 3000
-CMD python chatbot.py 
+CMD python output_chatbot.py 
