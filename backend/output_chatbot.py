@@ -6,15 +6,15 @@ from sentiment_analysis import get_emotion
 
 app = Flask(__name__)
 
-intents = json.loads(open("intents.json").read())
+intents = json.loads(open("intents.json",encoding="utf8").read())
 
 
-@app.route('/')
-def main():
-    return render_template("index.html")
+# @app.route('/')
+# def main():
+#     return render_template("index.html")
 
 
-@app.route('/output', methods=['POST'])
+@app.route('/output', methods=['GET','POST'])
 def chatbot():
     message = request.form.get("message")
     print(message)
@@ -22,8 +22,9 @@ def chatbot():
     res = get_response(ints, intents)
     emotion = get_emotion(message)
 
-    return render_template("index.html", result=res, emotion=emotion)
-
+    # return render_template("index.html", result=res, emotion=emotion)
+    temp = {"res":res, "emotion":emotion}
+    return temp
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
