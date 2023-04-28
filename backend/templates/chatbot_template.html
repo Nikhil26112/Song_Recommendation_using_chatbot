@@ -26,34 +26,30 @@
                 <div class="card-header text-center">
                     <span>Chatbot</span>
                 </div>
+                {% for chat in chat_history %}
                 <div class="card-body chat-care">
                     <ul class="chat">
                       <div>
                         <li class="single-convo">
                         <li class="agent clearfix">
-                            <span class="chat-img left clearfix mx-2">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=C" alt="Agent" class="img-circle" />
-                            </span>
                             <div class="chat-body clearfix">
                                 <p>
-                                    Lorem ipsum dolor sit amet.
+                                  {{ chat["req"] }}
                                 </p>
                             </div>
                         </li>
                         <li class="admin clearfix">
-                            <span class="chat-img right clearfix  mx-2">
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="Admin" class="img-circle" />
-                            </span>
                             <div class="chat-body clearfix">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
+                                  {{ chat["res"] }}
                                 </p>
                             </div>
                         </li>
                       </li>
                     </ul>
                 </div>
+                {% endfor %}
+                <form action="/output" method="get">
                 <div class="card-footer">
                     <div class="input-group">
                         <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
@@ -63,6 +59,7 @@
                         </span>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
     </div>
