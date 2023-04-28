@@ -11,6 +11,9 @@ intents = json.loads(open("intents.json",encoding="utf8").read())
 
 chat_history = []
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/chatbot', methods=['GET','POST'])
 def chatbot():
