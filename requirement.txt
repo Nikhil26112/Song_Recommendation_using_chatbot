@@ -1,3 +1,9 @@
+numpy==1.23.5
+nltk==3.8.1
+tensorflow==2.12.0
+Keras==2.12.0
+python-dotenv==1.0.0
+ibm-watson==7.0.0
 async-timeout==4.0.2
 certifi==2022.12.7
 charset-normalizer==3.1.0
