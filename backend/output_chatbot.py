@@ -4,18 +4,20 @@ import json
 # import request
 from sentiment_analysis import get_emotion
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'Abhyoday'
 
-intents = json.loads(open("intents.json",encoding="utf8").read())
+intents = json.loads(open("intents.json", encoding="utf8").read())
 
 chat_history = []
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/chatbot', methods=['GET','POST'])
+
+@app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
     if request.method == 'POST':
         message = request.form["message"]
@@ -23,8 +25,8 @@ def chatbot():
         ints = predict_class(message)
         res = get_response(ints, intents)
         emotion = get_emotion(message)
-        temp = {"res":res, "emotion":emotion}
-        chat_history.append({"req":message,"res" : res})
+        temp = {"res": res, "emotion": emotion}
+        chat_history.append({"req": message, "res": res})
         return redirect(url_for('chatbot'))
     return render_template('chatbot_template.html', chat_history=chat_history)
 #     # return json.dumps(temp)
