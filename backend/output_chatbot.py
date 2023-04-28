@@ -25,16 +25,6 @@ def chatbot():
     temp = {"res":res, "emotion":emotion}
     return json.dumps(temp)
 
-@app.route('/data')
-def get_time():
-  
-    # Returning an api for showing in  reactjs
-    return {
-        'Name':"geek", 
-        "Age":"22",
-        "Date":"28-04-2023", 
-        "programming":"python"
-        }
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
