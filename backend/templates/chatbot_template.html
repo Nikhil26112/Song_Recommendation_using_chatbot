@@ -19,51 +19,52 @@
 
 <body>
   <br>
-<div class="container">
-  <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="card">
-                <div class="card-header text-center">
-                    <span>Chatbot</span>
-                </div>
-                {% for chat in chat_history %}
-                <div class="card-body chat-care">
-                    <ul class="chat">
-                      <div>
-                        <li class="single-convo">
-                        <li class="agent clearfix">
-                            <div class="chat-body clearfix">
-                                <p>
-                                  {{ chat["req"] }}
-                                </p>
-                            </div>
-                        </li>
-                        <li class="admin clearfix">
-                            <div class="chat-body clearfix">
-                                <p>
-                                  {{ chat["res"] }}
-                                </p>
-                            </div>
-                        </li>
-                      </li>
-                    </ul>
-                </div>
-                {% endfor %}
-                <form action="/output" method="get">
-                <div class="card-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" id="btn-chat">
-                                Send</button>
-                        </span>
-                    </div>
-                </div>
-              </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-header text-center">
+            <span>Chatbot</span>
+          </div>
+          {% for chat in chat_history %}
+          <div class="card-body chat-care">
+            <ul class="chat">
+              <div>
+                <li class="single-convo">
+                <li class="agent clearfix">
+                  <div class="chat-body clearfix">
+                    <p>
+                      {{ chat["req"] }}
+                    </p>
+                  </div>
+                </li>
+                <li class="admin clearfix">
+                  <div class="chat-body clearfix">
+                    <p>
+                      {{ chat["res"] }}
+                    </p>
+                  </div>
+                </li>
+                </li>
+            </ul>
+          </div>
+          {% endfor %}
+          <form action="/output" method="get">
+            <div class="card-footer">
+              <div class="input-group">
+                <input id="btn-input" name="message" type="text" class="form-control input-sm"
+                  placeholder="Type your message here..." />
+                <span class="input-group-btn">
+                  <input type="submit" class="btn btn-primary" id="btn-chat" value="Send">
+
+                </span>
+              </div>
             </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 
 </html>
