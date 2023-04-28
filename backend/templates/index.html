@@ -14,10 +14,10 @@
     </div>
     <div id="history"></div>
     <div>
-        <form action="/" method="post">
+        <form action="/output" method="get">
             <input type="text" name="message">
             <hr>
-            <button>send message</button>
+            <input type="submit" value="Send">
             <hr>
             {% if result %}
             {{result}}
