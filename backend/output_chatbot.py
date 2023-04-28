@@ -24,7 +24,9 @@ def chatbot():
     # return render_template("index.html", result=res, emotion=emotion)
     temp = {"res":res, "emotion":emotion}
     return json.dumps(temp)
-
+@app.route('/chatbot')
+def loadChatbot():
+    return render_template("chatbot_template.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
