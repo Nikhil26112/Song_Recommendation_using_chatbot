@@ -110,3 +110,10 @@
 #btn-chat{
   background-color: #9a78ff;
 }
+.chatbot-playlist-container{
+    display: flex;
+    justify-content: space-around;
+}
+.chat-container{
+    height: 480px;
+}

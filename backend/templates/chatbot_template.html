@@ -19,36 +19,40 @@
 
 <body>
   <br>
+  <div class="chatbot-playlist-container">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto">
+      <div class="col-md-6">
         <div class="card">
           <div class="card-header text-center">
             <span>Chatbot</span>
           </div>
-          {% for chat in chat_history %}
-          <div class="card-body chat-care">
-            <ul class="chat">
-              <div>
-                <li class="single-convo">
-                <li class="agent clearfix">
-                  <div class="chat-body clearfix">
-                    <p>
-                      {{ chat["req"] }}
-                    </p>
-                  </div>
-                </li>
-                <li class="admin clearfix">
-                  <div class="chat-body clearfix">
-                    <p>
-                      {{ chat["res"] }}
-                    </p>
-                  </div>
-                </li>
-                </li>
-            </ul>
+          <div class="chat-container">
+            {% for chat in chat_history %}
+            <div class="card-body chat-care">
+              <ul class="chat">
+                <div>
+                  <li class="single-convo">
+                  <li class="admin clearfix">
+                    <div class="chat-body clearfix">
+                      <p>
+                        {{ chat["res"] }}
+                      </p>
+                    </div>
+                    <li class="agent clearfix">
+                      <div class="chat-body clearfix">
+                        <p>
+                          {{ chat["req"] }}
+                        </p>
+                      </div>
+                    </li>
+                  </li>
+                  </li>
+              </ul>
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+
           <form action="/chatbot" method="POST">
             <div class="card-footer">
               <div class="input-group">
@@ -65,6 +69,10 @@
       </div>
     </div>
   </div>
+  <div>
+    Playlist
+  </div>
+</div>
 </body>
 
 </html>
