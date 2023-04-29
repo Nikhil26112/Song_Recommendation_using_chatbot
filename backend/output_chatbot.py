@@ -12,16 +12,9 @@ intents = json.loads(open("intents.json", encoding="utf8").read())
 chat_history = []
 suggestion_list = []
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/chatbot', methods=['GET', 'POST'])
-def chatbot():
-    global suggestion_list
-    def random_songs(emotion):
-        with open('../Spotify-Machine-Learning/data/data.csv', 'r') as csvfile:
+def random_songs(emotion):
+        global suggestion_list
+        with open('../Spotify-Machine-Learning/data/data.csv', 'r', encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             json_list = []
             for row in reader:
@@ -47,14 +40,21 @@ def chatbot():
             suggestion_list = random.sample(classified_data['Calm'], 10)
         elif emotion == "fear":
             suggestion_list = random.sample(classified_data['Calm'], 10)
-        return suggestion_list
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/chatbot', methods=['GET', 'POST'])
+def chatbot():
+    global suggestion_list
     if request.method == 'POST':
         message = request.form["message"]
         print(message)
         ints = predict_class(message)
         res = get_response(ints, intents)
         emotion = get_emotion(message)
-        suggestion_list = random_songs(emotion)
+        random_songs(emotion)
         temp = {"res": res, "emotion": emotion}
         chat_history.append({"req": message, "res": res})
         return redirect(url_for('chatbot'))
