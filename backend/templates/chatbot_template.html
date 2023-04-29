@@ -70,7 +70,18 @@
     </div>
   </div>
   <div>
-    Playlist
+    <h2>Recommendations</h2>
+    <!-- {{ suggestion_list }} -->
+    {% for track in suggestion_list %}
+    <div class="track">
+      <!-- <p>{{track}}</p> -->
+        <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/{{ track.id }}?utm_source=generator" width="100%"
+            height="152" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+    </div>
+    {% endfor %}
   </div>
 </div>
 </body>
