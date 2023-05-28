@@ -37,6 +37,7 @@ def get_emotion(msg):
                "disgust": 0,
                "anger": 0}
     keywords = response["keywords"]
+    print("keywords: ", keywords)
     for keyword in keywords:
         emo = keyword["emotion"]
         emotion["sadness"] = max(emo["sadness"], emotion["sadness"])
@@ -44,6 +45,6 @@ def get_emotion(msg):
         emotion["fear"] = max(emo["fear"], emotion["fear"])
         emotion["disgust"] = max(emo["disgust"], emotion["disgust"])
         emotion["anger"] = max(emo["anger"], emotion["anger"])
-
+    print(emotion)
     Keymax = max(emotion, key=lambda x: emotion[x])
     return Keymax

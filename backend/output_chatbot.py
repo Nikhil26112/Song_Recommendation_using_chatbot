@@ -56,9 +56,9 @@ def chatbot():
         emotion = get_emotion(message)
         random_songs(emotion)
         temp = {"res": res, "emotion": emotion}
+        print(temp)
         chat_history.append({"req": message, "res": res})
         return redirect(url_for('chatbot'))
-
     return render_template('chatbot_template.html', chat_history=chat_history, suggestion_list=suggestion_list)
 #     # return json.dumps(temp)
 

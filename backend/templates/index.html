@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
-    <title>Your bot name</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -19,20 +19,13 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <img src="{{ url_for('static', filename="assets/menuIcon.svg") }}" width="20px" height="20px" style="max-width: none !important;">
         </button>
-        <img src="{{ url_for('static', filename="assets/BotLogo.svg") }}" width="50" height="50">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link display-5" href="#/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link display-5" href="#features">Features</a>
                 </li>
             </ul>
             <!-- <div class="nav-item dropdown">
@@ -56,8 +49,9 @@
     </nav>
     <div class="heading">
         <h1 class="display-5 title">It's time to use listen music.</h1>
-        <p class="subtitle">Bot is a multi-purpose bot ready to skill up and boost up your Discord server<br />Also
-            features auto-moderation, administration, music and much more!</p>
+        <p class="subtitle">Chatbot Applications Streamline Interactions Between People And Services, Enhancing Customer Experience.
+            Chatbot will recommend songs based on the tone of the user.
+            Chatbot will recommend songs based on user's mood which will be analyzed through an API</p>
         <a class="btn btn-primary btn-lg" href="/chatbot" target="_blank" role="button">Let's Chat</a>
         <br /><br /><br /><br /><br /><br />
     </div>
@@ -95,17 +89,15 @@
                     <div class="title">Ready to try Bot?</div>
                     <div class="subtitle">Invite Bot and start giving your server cool perks!</div>
                     <br />
-                    <a class="btn btn-primary btn-lg" href="#start_link" role="button">Get started</a>
+                    <a class="btn btn-primary btn-lg" href="/chatbot" role="button">Get started</a>
                 </div><br />
             </div>
         </div>
         <div class="footer">
             <div class="bot-footer">
-                <img src="{{ url_for('static', filename="assets/BotLogoWord.svg") }}" width="150"><br />
-                Copyright © [BotOwner] - 2020
+                
             </div><br />
-            <div class="nouridio">website designed by <a href="https://nouridio.com"> nouridio</a></div>
-            </di </div>
+            </div> </div>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>

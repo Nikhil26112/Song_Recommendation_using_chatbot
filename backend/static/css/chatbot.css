@@ -130,3 +130,36 @@
 .card-footer{
     background-color: #fff;
 }
+.track{
+    width: 100%;
+}
+.recommended-songs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #0169DA;
+    flex-direction: column;
+}
+.card-header{
+    flex-direction: column;
+    background-color: #9a78ff;
+    color: #ffffffe0;
+    font-weight: 500 !important;
+    font-size: 24px !important;
+
+}
+.chat-container{
+    border-radius: 15px !important;
+    width: 100% !important;
+}
+.chatbot-playlist-container{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 100% !important;
+}
+.row{
+    display: flex !important;
+    justify-content: center;
+}
