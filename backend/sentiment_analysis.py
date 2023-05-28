@@ -36,10 +36,8 @@ def get_emotion(msg):
                                         limit=2))).get_result()
 
         # output = json.dumps(response, indent=2)
-        print(response)
         # output = json.loads(output)
         keywords = response["keywords"]
-        print("keywords: ", keywords)
         for keyword in keywords:
             emo = keyword["emotion"]
             emotion["sadness"] = max(emo["sadness"], emotion["sadness"])
@@ -47,11 +45,9 @@ def get_emotion(msg):
             emotion["fear"] = max(emo["fear"], emotion["fear"])
             emotion["disgust"] = max(emo["disgust"], emotion["disgust"])
             emotion["anger"] = max(emo["anger"], emotion["anger"])
-        print(emotion)
         Keymax = max(emotion, key=lambda x: emotion[x])
         return Keymax
     except:
         print("Exception occured...")
         random_key = random.choice(list(emotion.keys()))
-        print(random_key)
         return random_key

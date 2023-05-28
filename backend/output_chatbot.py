@@ -50,18 +50,20 @@ def chatbot():
     global suggestion_list
     if request.method == 'POST':
         message = request.form["message"]
-        print(message)
         ints = predict_class(message)
         res = get_response(ints, intents)
-        
         emotion = get_emotion(message)
         random_songs(emotion)
+
         temp = {"res": res, "emotion": emotion}
+        print("req:", message)
         print(temp)
         chat_history.append({"req": message, "res": res})
         return redirect(url_for('chatbot'))
-    return render_template('chatbot_template.html', chat_history=chat_history, suggestion_list=suggestion_list)
+    return render_template('chatbot.html', chat_history=chat_history, suggestion_list=suggestion_list)
 #     # return json.dumps(temp)
+
+
 
 
 if __name__ == "__main__":
