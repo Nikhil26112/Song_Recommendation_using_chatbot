@@ -31,10 +31,10 @@ def random_songs(emotion):
             classified_data[mood].append(obj)
         
         if emotion == "joy":
-            suggestion_list = random.sample(classified_data['Energetic'], 10)
-        elif emotion == "happy":
             suggestion_list = random.sample(classified_data['Happy'], 10)
-        elif emotion == "sad":
+        elif emotion == "anger":
+            suggestion_list = random.sample(classified_data['Energetic'], 10)
+        elif emotion == "sadness":
             suggestion_list = random.sample(classified_data['Sad'], 10)
         elif emotion == "disgust":
             suggestion_list = random.sample(classified_data['Calm'], 10)
@@ -53,6 +53,7 @@ def chatbot():
         print(message)
         ints = predict_class(message)
         res = get_response(ints, intents)
+        
         emotion = get_emotion(message)
         random_songs(emotion)
         temp = {"res": res, "emotion": emotion}

@@ -1,5 +1,5 @@
 import json
-import os
+import os, random
 from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
@@ -22,29 +22,36 @@ natural_language_understanding.set_service_url(url)
 
 
 def get_emotion(msg):
-    response = natural_language_understanding.analyze(
-        text=msg,
-        features=Features(
-            entities=EntitiesOptions(emotion=True, sentiment=True, limit=2),
-            keywords=KeywordsOptions(emotion=True, sentiment=True,
-                                     limit=2))).get_result()
-
-    # output = json.dumps(response, indent=2)
-    # output = json.loads(output)
     emotion = {"sadness": 0,
-               "joy": 0,
-               "fear": 0,
-               "disgust": 0,
-               "anger": 0}
-    keywords = response["keywords"]
-    print("keywords: ", keywords)
-    for keyword in keywords:
-        emo = keyword["emotion"]
-        emotion["sadness"] = max(emo["sadness"], emotion["sadness"])
-        emotion["joy"] = max(emo["joy"], emotion["joy"])
-        emotion["fear"] = max(emo["fear"], emotion["fear"])
-        emotion["disgust"] = max(emo["disgust"], emotion["disgust"])
-        emotion["anger"] = max(emo["anger"], emotion["anger"])
-    print(emotion)
-    Keymax = max(emotion, key=lambda x: emotion[x])
-    return Keymax
+            "joy": 0,
+            "fear": 0,
+            "disgust": 0,
+            "anger": 0}
+    try:
+        response = natural_language_understanding.analyze(
+            text=msg,
+            features=Features(
+                entities=EntitiesOptions(emotion=True, sentiment=True, limit=2),
+                keywords=KeywordsOptions(emotion=True, sentiment=True,
+                                        limit=2))).get_result()
+
+        # output = json.dumps(response, indent=2)
+        print(response)
+        # output = json.loads(output)
+        keywords = response["keywords"]
+        print("keywords: ", keywords)
+        for keyword in keywords:
+            emo = keyword["emotion"]
+            emotion["sadness"] = max(emo["sadness"], emotion["sadness"])
+            emotion["joy"] = max(emo["joy"], emotion["joy"])
+            emotion["fear"] = max(emo["fear"], emotion["fear"])
+            emotion["disgust"] = max(emo["disgust"], emotion["disgust"])
+            emotion["anger"] = max(emo["anger"], emotion["anger"])
+        print(emotion)
+        Keymax = max(emotion, key=lambda x: emotion[x])
+        return Keymax
+    except:
+        print("Exception occured...")
+        random_key = random.choice(list(emotion.keys()))
+        print(random_key)
+        return random_key
