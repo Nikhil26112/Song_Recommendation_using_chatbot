@@ -8,7 +8,7 @@ from sentiment_analysis import get_emotion
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'Abhyoday'
 
-intents = json.loads(open("intents.json", encoding="utf8").read())
+intents = json.loads(open("/app/backend/intents.json", encoding="utf8").read())
 
 chat_history = []
 suggestion_list = []
@@ -16,7 +16,7 @@ latest_releases = get_latest_releases()
 
 def random_songs(emotion):
         global suggestion_list
-        with open('../Spotify-Machine-Learning/data/data.csv', 'r', encoding="utf8") as csvfile:
+        with open('/app/Spotify-Machine-Learning/data/data.csv', 'r', encoding="utf8") as csvfile:
             reader = csv.DictReader(csvfile)
             json_list = []
             for row in reader:

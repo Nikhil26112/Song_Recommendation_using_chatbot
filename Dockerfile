@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirement.txt /app
 RUN pip install -r requirement.txt
 # RUN python training.py
-CMD python output_chatbot.py 
+CMD python backend/output_chatbot.py 

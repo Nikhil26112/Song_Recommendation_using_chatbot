@@ -13,7 +13,6 @@ fonttools==4.39.3
 idna==3.4
 kiwisolver==1.4.4
 matplotlib==3.7.1
-numpy==1.24.3
 packaging==23.1
 pandas==2.0.1
 Pillow==9.5.0
@@ -27,3 +26,4 @@ six==1.16.0
 spotipy==2.23.0
 tzdata==2023.3
 urllib3==1.26.15
+flask

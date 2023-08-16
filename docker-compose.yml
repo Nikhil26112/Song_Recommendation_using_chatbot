@@ -6,7 +6,9 @@ services:
       dockerfile: Dockerfile
     image: song_recommendation:latest
     container_name: song_recommend
+    ports:
+      - 5000:5000
     restart: on-failure:5
     volumes: 
       - .:/app
-    command: python output_chatbot.py
+    # command: python backend/output_chatbot.py

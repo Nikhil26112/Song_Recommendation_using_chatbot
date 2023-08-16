@@ -5,15 +5,16 @@ import numpy as np
 
 import nltk
 from nltk.stem import WordNetLemmatizer
-
+nltk.download('punkt')
+nltk.download('wordnet')
 from tensorflow.keras.models import load_model
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open("intents.json",encoding="utf8").read())
+intents = json.loads(open("backend/intents.json",encoding="utf8").read())
 
-words = pickle.load(open("words.pkl", "rb"))
-classes = pickle.load(open("classes.pkl", "rb"))
-model = load_model("chatbotmodel.h5")
+words = pickle.load(open("backend/words.pkl", "rb"))
+classes = pickle.load(open("backend/classes.pkl", "rb"))
+model = load_model("backend/chatbotmodel.h5")
 
 
 def clean_up_sentence(sentence):
