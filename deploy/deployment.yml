@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: song-recommendation-chatbot-deployment
+  labels:
+    app: song-recommendation-chatbot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: song-recommendation-chatbot
+  template:
+    metadata:
+      labels:
+        app: song-recommendation-chatbot
+    spec:
+      containers:
+      - name: song-recommendation-chatbot-container
+        image: <ECR_REGISTRY>/song-recommendation-chatbot:<IMAGE_TAG>
+        ports:
+        - containerPort: 80
+        env:
+        - name: ENV_VAR_NAME
+          value: "value"

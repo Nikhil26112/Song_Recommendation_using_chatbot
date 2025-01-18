@@ -26,3 +26,5 @@ Spotify-Machine-Learning/.cache
 Spotify-Machine-Learning/.cache-Nikhil
 Spotify-Machine-Learning/.env
 
+
+./backend/__pycache__/*

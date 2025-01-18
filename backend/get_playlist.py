@@ -5,15 +5,15 @@ import requests
 
 load_dotenv()
 
-apikey = os.environ.get("X-RapidAPI-Key")
-host = os.environ.get("X-RapidAPI-Host")
+apikey = os.environ.get("X_RapidAPI_Key")
+host = os.environ.get("X_RapidAPI_Host")
 url = "https://spotify23.p.rapidapi.com/playlist_tracks/"
 
 querystring = {"id":"37i9dQZF1DWXJfnUiYjUKT","offset":"0","limit":"8"}
 
 headers = {
-	"X-RapidAPI-Key": apikey,
-	"X-RapidAPI-Host": host
+	"X_RapidAPI_Key": apikey,
+	"X_RapidAPI_Host": host
 }
 
 def get_latest_releases():
