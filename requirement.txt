@@ -27,3 +27,4 @@ spotipy==2.23.0
 tzdata==2023.3
 urllib3==1.26.15
 flask
+boto3

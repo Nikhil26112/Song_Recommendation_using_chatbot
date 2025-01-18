@@ -4,11 +4,13 @@ from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
 from dotenv import load_dotenv
+from aws_secrets import get_secret
+
 
 load_dotenv()
 
-apikey = os.environ.get("apikey")
-url = os.environ.get("url")
+apikey = get_secret("apikey")
+url = get_secret("url")
 
 
 authenticator = IAMAuthenticator(apikey)
